@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+  <head>
+    <script src="https://getbootstrap.com/docs/5.3/assets/js/color-modes.js"></script>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#0053BE" />
+    <title>Carousel Template · Bootstrap v5.3</title>
+      
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
+    <style>
+        
+        
+        
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+}         
+      @keyframes gatito {
+                                    0% {
+                                        fill: #00008B;
+                                        transform: rotate(-6deg);
+                                        transform-origin: center center;
+                                    }
+                                    100% {
+                                        fill: #FFC300;
+                                        transform: rotate(6deg);
+                                    }
+                                }
+                                path#logo {
+                                    animation: gatito 2.5s alternate-reverse infinite;
+                                }
+                                .bd-mode-toggle {
+                                z-index: 1500;
+                                }  
+        :root {
+                --bs-body-font-family:'Geologica', sans-serif;
+            }
+        
+        
+            [data-bs-theme="light"] {
+                --bs-body-bg: #D6E8FF;
+            }
+
+            [data-bs-theme="dark"] {
+                --bs-body-bg: #2b5980;
+            }
+
+            .bd-mode-toggle {
+                z-index: 1500;
+            }
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="carousel.css" rel="stylesheet">
+  </head>
+  <body>
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+      <symbol id="check2" viewBox="0 0 16 16">
+        <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+      </symbol>
+      <symbol id="circle-half" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+      </symbol>
+      <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+        <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+        <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+      </symbol>
+      <symbol id="sun-fill" viewBox="0 0 16 16">
+        <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+      </symbol>
+    </svg>
+
+    <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+      <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
+              id="bd-theme"
+              type="button"
+              aria-expanded="false"
+              data-bs-toggle="dropdown"
+              aria-label="Toggle theme (auto)">
+        <svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#circle-half"></use></svg>
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#sun-fill"></use></svg>
+            Light
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
+            Dark
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#circle-half"></use></svg>
+            Auto
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    
+<body class="overflow-x-hidden">
+        <!--acá deben agregar más símbolos-->
+        <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+            <symbol id="check2" viewBox="0 0 16 16">
+                <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
+            </symbol>
+            <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+                <path
+                    d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"
+                />
+                <path
+                    d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"
+                />
+            </symbol>
+            <symbol id="sun-fill" viewBox="0 0 16 16">
+                <path
+                    d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"
+                />
+            </symbol>
+            <symbol id="emoji" viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                <path
+                    d="M4.285 9.567a.5.5 0 0 1 .683.183A3.498 3.498 0 0 0 8 11.5a3.498 3.498 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.498 4.498 0 0 1 8 12.5a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zm4 0c0 .828-.448 1.5-1 1.5s-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5z"
+                />
+            </symbol>
+        </svg>
+        <!--acá el cambio de themes-->
+        <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+            <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center bg-dark shadow-sm" id="bd-theme" type="button" aria-expanded="false" data-bs-toggle="dropdown" aria-label="Toggle theme (auto)">
+                <svg class="bi my-1 theme-icon-active" fill="gray" width="1em" height="1em"><use href="#circle-half"></use></svg>
+                <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+                <li>
+                    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+                        <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#sun-fill"></use></svg>Light<svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+                    </button>
+                </li>
+                <li>
+                    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+                        <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>Dark<svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+                    </button>
+                </li>
+            </ul>
+        </div>
+        <!--acá el encabezado que se esconde/depliega con un clic del menú-->
+        <header data-bs-theme="dark">
+            <div class="collapse text-bg-dark" id="navbarHeader">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-4 offset-md-1 py-4">
+                            <h4>Contáctame</h4>
+                            <ul class="list-unstyled">
+                                <li>
+                             <a href="https://www.instagram.com/shiorysus/"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAABVUlEQVR4nO2WQU7DMBBFAwIJlr1RF+xaLgHtOTgHKxbxdIEoIuUAKfsgtWVtT8oFKCf4aJwMQjTpojgtqjLSSJbGzpP/fI8SRW3sI2iJDllcNJJLdGrBMaNLDDSRMaN7wGCH1Fj0DWO6U7Cx6HvPWFwGBRvGihwySb9er09L6Eso8GyUo5emONEzsi5lnTfSY+PwcMc4qzsrNXIYhwbPFHoDHBuHoWFMiJGQxQDAkdTu33FOjEUw8ChHT6HEeK7o6URqskdkDwN2+NCeyk1rW5HjWvbcZjitMly8BTjTeilvnYES3UcOr7sEPwUFG8ZK5PMftBhscO2VSk2MzyDmMuUk8o6uvnWizv45rf4OZsz1OQlAjCTSSsr613N6CzpAyGG8aYB4qMNj8MlFRS5ESu35d08LeStvGgoMNZx3buHeNSM1BqYtMm7B/0Jq2tfvbRtRg/EF+5fwi8MVbQ4AAAAASUVORK5CYII="> </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.deviantart.com/shiorysus"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABEUlEQVR4nLWVvWoCQRDHt0kZXyCQJpBKsBR8CZu8hEXeIj6EYKHejleltbGTlPaKeDNJquBHZ6Mk/sOJCH4cN7d3OzDl/n5zs7NzxjhGN8KjZaxJgFMyVqaosILgDH7MQuA9RoUYf94EJBjeghNjk3r4qq+iT8t401TnBhcsghlK3gQkaGj76wKftsa48yawjLoK7igYqeEHAWOVofJ9n1E1eSKM8EyCXYIgzAU/ftF7wlhuwy885av+E7W4Der7yLrsiPGR9dLV8CDCi8vIquDxo7GCmTdBn/HqujJMWrQnuLeCH28Cy2i6wkkzRfFPI+HwQNXfVMHtF/vbm6PsTUCMdiHwg+Bi2VnBsvONB1fgP43QqCeCs14RAAAAAElFTkSuQmCC"></a>          
+                                    <br>
+                                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAABs0lEQVR4nO2VvUoDQRDH16/sHChiK4L4NXMKVqKFCnkEISg+gBBEFCuJGmf23kAstbW1E8TKRxBBH0CFBKwEPxuNsgk5YxKTM1y0uYFp7nbnd/vf/8wpFUUUfxGaeFmjXAPJR5ipSW418kpVKIym+8MGlmWue3yzpxq7BYi3gfg1/BPzvUZZqi33cHoIUE5DAyMfO8OmL/B9OyQLmviu4VMiZxzXJOqDXJPQJIcOmd7iM3snQHxg7+cX0DdNsqvGTGexTmx0ZwRITgBlsVJiYq8gjTwBSkqphbbiO0CeAeTLANALZ8RM+UUnkh22VtE3lvEz+KsFzh3kSX9B3LTHSNYB+bEK8CVfdCLZ4X8smWlAuSozmVcXXEh+B5R9RRtd/jpMD+Rl880jZzHXoF9oMNUNKHv5vZXu9gKCfaPcxJDnSteDy3Gb33xCZl6jZGu0lfcrcGlr2EFTvtcaUqMcBehnrzFwAf6cN1/ctCtlWrXLSUB5CDhIvMbBvvySrSVr08DQyFChCKz+UWpwZavZYHBlqxKMZrbJ4Jyd+RXggtyyZn9noUuMnNEur1aFRhGFCjk+AcFU5WEDyrYQAAAAAElFTkSuQmCC">shiorysus.sybusiness@gmail.com
+        
+                                </li>
+                                <li>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="navbar navbar-dark bg-primary shadow-sm">
+                <div class="container">
+                    <a href="index.html" class="navbar-brand d-flex align-items-center"><a class="navbar-brand" href="#"><h1><body>
+  <p style="color:#B9EEFF";>SHIORYSUS</p>
+</body></h1></a>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+            </div>
+        </header>
+        
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+<main>
+
+  <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel" data-bs-theme="light">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
+        <div class="container">
+          <div class="carousel-caption text-start">
+            <h1>DISEÑO</h1>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item"><img src="https://imgur.com/dpFkgsg.gif" class="img-fluid" alt="Responsive image" width="100%" height="100%">
+        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
+        <div class="container">
+          <div class="carousel-caption">
+            <h1>ILUSTRACIÓN</h1>
+        
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
+        <div class="container">
+          <div class="carousel-caption text-end">
+            <h1>ARTE</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Atrás</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Siguiente</span>
+    </button>
+  </div>
+
+
+  <!-- Marketing messaging and featurettes
+  ================================================== -->
+  <!-- Wrap the rest of the page in another container to center all the content. -->
+
+  <div class="container marketing">
+
+    <!-- Three columns of text below the carousel -->
+    <div class="row">
+      <div class="col-lg-4">
+          
+          
+          <div class="mx-auto" style="width: 300px;">
+  <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_9t9dpxrw.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
+</div>
+          
+        
+        <h2 class="text-center">NAF</h2>
+        <p class="text-center">Diseñadora, ilustradora y gamer.</p>
+          
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4">
+          
+       <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+          <div class="mx-auto" style="width: 300px;">
+  <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_9t9dpxrw.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
+</div>
+          
+          
+       <!-- /.col-lg-4 -->
+          
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4">
+          
+       <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+          <div class="mx-auto" style="width: 300px;">
+  <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_9t9dpxrw.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
+</div>
+          
+          
+        <h2 class="text-center">Softwares</h2>
+        <p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAACXBIWXMAAAsTAAALEwEAmpwYAAABYklEQVR4nOXWzUrDQBAH8L/1IghCw2Zq8OukJ/Hm0SfwlM4uBbUI4iMIXpReBFHBh/AkWm+id4vv0ZsXC9oXiCRZkcZ8bNKkHhxYAsnM/jZhMwkQF5a7COJ7kByCpJc6bNkHqR3kDh+xeZAJUBTk43xQeCceiB9hqYXUXMFbEewsB6Qfl39nWbGyPxPzKK9NobDAfGFezLiaFOSB+HRCkPRgq3aJEPdSt35pUDQae7MQajt7nnGh7/g7iORr7i5AI7urZwrFtZMjfe3kp0BNg/gyNr8wRLwBYArz7uZIAfF5iRC/BQgpF+jUYMv3qqCb4HzDXQ+ONt9WA9mqDeE6Qdu3ducg+KAaSLgOSB7qTdGEo5bDgk4NxBdjQJzcQszGixmUO8Ew6D9CQ+NPeVLUW0v6VflIzAHJB72ap0JY3Uf4Wc/RTU4UrbVCv1u/++UAormavqrgB1LegfgzPxLUdKPIFxLMhLVVYY34AAAAAElFTkSuQmCC">
+        
+            
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB+ElEQVR4nN2WT0gUcRTHf5q7v7e7IOElpULC5r3RxIOCNwmCTp47FHbJy57tEOm897uICkJB1DnomIoXqWsk3Tt67NB1IUNqCyr5/ea3pTu7MzubKPhgGObHe/P5vT/z/Y1SLax03VzRyBuA8hVI/qRdGuUTUHRP5TUPqWUBoPlCeZQL5DKJg3dKweLlNF8IeOZ4drzcMahRLptZpvOwgUQpiZ90BvIBHW+MWvZt/VRAEPeMTwdEDnb/xECaeDdt9E8MlLCJh5ViwLOZ7/lvkLezA2nkD+lfPf8CknqmFBHvpoLi6eAf/WNmwD6Xx8ygJt72kOe25kqZXkB5adcafmrYXNTEVUD52aoKrUHE3112xFUd8u3iaBQAyW81Zcq2sZr4FaDsNQI1RQ+83PRo5JXcIDv35dBMFkIzbtft3ckM8gKQfPsHklUnU4GZ1mhu5QYpdedCYTS6oVHexXWXz4DRXFw6BzsGKqCZ6AqkSZ42NXhNo2zavkEod/+CUOYBWXz8ixwgqftdPzsCqpfDxaH4xUvXgOSjC7xp+uxaZfzxJQvzU5kNSpMQr1fJUxblIDne8j4VdP6U4exAmOMob2MwsnTVg76087Hat+Wd3nQDAwfht/482mzrWAwNdvW7lTj0uGalLHVX7t+O5DUQ7+eH8L7NpBlyCOnW0h/AUd7lAAAAAElFTkSuQmCC">
+            
+            <img src="data:image/png;base64,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">
+            
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEVUlEQVR4nOVWXUxcRRS+kLgzs7v8LLsLNEJIYPfO7G5ZFnZXCtqirZq26ps+GEXri48mDQ9WYWZuofwVadlFugkt9ScmPtT4YmybaOKDiQ/2x6qPRk0MGE1MKNRGCJQx517YUtyfu/WxJznJvfecud89c8/5vtG0B9MajpKS8uPSicIyAF7y2i1zBOVhrPM7mBozWrTPpeU0We5g8lmsizmk8wXLxdVN/x3uIQY5kKvZsrB0E2b8TJjcwMz406HzQ9vDiMmnEeXfYSouYn3g5arWY56dr4BnEMOUX4JcxPhTtrDdgbf8hBm/VsfeWXeGh5YIE1/hlv5GRMU4puIGDvK99qrQNByU+2ANonzMVvVO9vYuzOS8N5Far24/tUqosYp0eR12RCvVon0upPML4LbASUA2YGYseBOpjdrOM8q9e/gmZuInzHhXyeCaVoZ08QmiYtRWNg4ZvYSKNQD3d84oT/ukIsy4RXT+UWVY1pQEHe1zYcq/R0H5ZJFMWY6ouI6CA0cwNf6qSUwpX3Ja1cRPK3dkeAVTsYhD/b2lYG/9c63QlpsjQ8VFuHYy2YGpsejpOK1q4lNm5ZVt4wpT+TfW+Wda85tVtsF1cdkR5M8USODnMRUv3f1avhczsVTdPmkCV8UmVGV0TJHQ8RVCxS+uZllrE7gXU34ubwIQwc45NQmGyeXq2EQW2L17WBF2fBXp/Ect/vpDxYChNxAV8/lpME+QUPk8puI2gG4Bu8KDCut81RHib9goWgOGy0mvJvfq/Er+hfIgpuKmKzJ0x6w4ZCh/5xnVsO/9tabu92I2gK+iQH/LfwOB/hYIahK6T5XlWgxsRqj8EjOx7IwMqfruWcu7ZtdqOzMFaRKZ0yKbc2+1zhfgsmn/x/fw9U5zBGTYqQ9yT2Jq2ZtIK8tT6/5k6mCBiv/Iq2RbzdXY8+FcY88HCa2oqfKK1vFPK6PjqqJ1VBEq1xEVv0FDbs+qYMe8+ZvLavs5UJmHu88f3vXoucX6x87mreCeDw7xA4RJIBhlOV/SmmR19r1MvIqpOFuEQPgl+Me1ezJX6vZk1uu6Mhl/8t36fGv83bOxuq7MF1VtJzdBLXdQ/pxtAtGAMnV+Delyvy+Ravclp1eBMr3J9G1vMv25N5nu8z8y/YIvnn7Rl5gWvkT6G4ibOfEUcHoWGKbAqpb3gEYXVSkQcZNbo32uqvbJ1zwdkxuejlPKjsOMbwKvmXIKIqGLH5DODxQEzYJTPmZpqVZW0XbySGXb2ArwdHEfU5hJIJeJrCzqfMQW6LYtvwAL4audkcE2V+TE1+7ICVXIXZGhZULliHUQMEHtHQRySOSoqadUPg5PMJXdmIoZzOQNwsQ/hElFqLiFmfyWUGnAEQpR/sTm9o7cB+hdAxEH1oFuB5XJdRiAOcXBgVege63mtPlPi5ssh3EAaQMi2DzSAsA185qKeYhZI/M/qixqDUeJye1A+vd7oNceNPsXyGjQ/+E4pRAAAAAASUVORK5CYII=">
+            
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAAC5UlEQVR4nO2VzUtUURTAn+LMvTNWiyKysPcKnHOfkxVlLSxofJNFEUEba92mD8hCKsiac+4/0Be0aBFUZO8ZElFItYgKWhQlQqsWQolFthAkqWSydOLOqL335oMZNSHwwNm8c9793fN5NW1e/gMpC9ckNmjVraE5pXJBp7mgFAfqDZty49yDRVqTzMRjc8UuCwo6wQF/ui5wf1FULp4TeghwMxf4fhLOBH3kgFund1r9oQA3sYFFZFMxGhLUzAD7pyIHGlWlUFkpicsBu1zpm4k+WlDTtrR4sKCvswROMcDPRaeeCTrIBb3L1G5S6UPOgwW94QJPBSO4Jwi4W3U3F/iECxp3+Y0ou1ayVLeGmKBODxToOwc6kP/yaDHAL3/98VsQpFk0s7KubRkDfOWNFMcYyLiyr2xyVhiWc1m3nNeGZfcYlnNt9fYOULZgJFGrgK7/nhYFDdQm1nDAvqwUA15Xdj3eHjXizpARd1Ju1S07uarRjikfDoTuf0NCbioIZabcma/JmIk70mDLeemHuvSTJmV50JTgKxHmhwo8wgF/5evUoEiIDNhOFgCnjFhnlWZI7u1yupsDKcuZoAu+eg4zwG7Pt4jclkm1/bYAeFCLPa/gtecM33kPvcx1Jys54APfDPYHRGItB7riG6FLmYg7tuhxZzQbao/rcbtZ+YSAWn3/dk4xw1FZxQB7fNDusHl2ebo7BR73pXskEEmsV7bq2J06w3K6dMsZNiz7h245z/TG2+mFwaNSZwIHvWC86KoptftudU+rl+FJ+0S6fvtqNaD2eeGJoN7sTSZ3TTlxoKuuSM+rWvsP4kA3shsNx9KLBRL7VUkULARyHwO8OfFQ+MewT4vJCu9mAjqqVl6+CBaaZ5Z4XqDSddwTbSkSMGVdeulPByqoRZuJqIbhAh8X/zrRQFDgXm22RG02JvAWAxrKAUwyQS+YoMNqTGcNmushSc+7iQ1qRWo1LeyfweZFK1H+AH1WOsYMWwD/AAAAAElFTkSuQmCC">
+          
+     <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAABtklEQVR4nO3WvU7DMBAAYKdDHNoiAQtUQmpi81dAfQNKqSokhhaJhRdgahKCEExVf+A9mBAwsAJPwMKAEDAx8lN2nuCQAxmK4thxOjD0pBvjL3e52EZoGP8jOik97yxgapex5VSlktpl9gxCSFMDie3pxPnExAWV1Inbw9R1Y7xAJ4Ut54K3YHp2H8aWm3Fe4kwKZ5XyFhmZ2YPVnTuoH77BRLEtj1O/clGLw9sboNvdLz/j4LrlfERW7Q+SBKqEm948FzbMRkkWjYsbZqPEhf3fRhneFXxnuxwLlml1dukIpjduIVNoDRbGEcPFUHPzEcjWC+Rr93ycKsLBP7xuP0Pt4BXGi60+NEguThPALGn1hIsGadYeILPYHixsUA9Gl47BrD+FokFOrlwOFs5GVBpkrnIDxt8ppwlgZZQkgP32CtHrcJQowolRIoDDtkyZFufWBCgRbJm8QyIKl0FZ6pY9JzgW3R4f7/bh8qjzLrwMsEM7ahG2MbANYqpyJYX6aTkNJBEattzzqIXShSZg6kmhOnFP41z8NFY5uzlIVcRp72+lKrdNpLGhiH29/RkkJXAYaNDxDdf3e53RD4GuAAAAAElFTkSuQmCC">
+            
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAAD90lEQVR4nO2WbU9TZxjHm5zeD8UC4Tmhpz2H81RlRTARh+LAdxO+gq2gSAFpeRAq2EHrHGZzi/PFEGPMxpZtmkVhb4cfZPhuui+wmiAvzMx/uU9pgQKnsPFiL7ySK+cx/Z3//76u667L9T7+d6GkOTXT3dxKPeBWaoVbsy+4KXJmhZvJBWolu1xGnB0eUB73cCs1xYKp155g+u2R0J01T/AmuPUJuJUEM2+AmdNg5hSYMZWhZiIhPvI/MYmVPs6C6T95MIWSxtuoaH0EjzW7E2oI6HUwIwGmT4Lqk6+INt70r6DUmu3iwdR6FjqHmrNP4DmaVcrM5BaVG0BjEkyfANOvgWrjoNrYOtPj5w+m1JxpzkF5cBaVHy6ism1xF2s3VRZAQbVR0IaRN0Qb3qdyedyTs1dAS47dQl3nEipaHxZYu10l07cBQRvioA0xkIbYS5fSU3zNRSEJILdmbFtLm79CXecyqtq+26/KPJSqw6DqVbgDgwlnqhFnLDj7OgcV1pa13LPBtZ1L8ARnCqBbgNooPNY0mDjfAFJ1CEQZFJlxbDVqznQXVqz3+Be21QJeffp7cKG4QCXTxlB56hHqzv1qv1dxcgHMmNiADoAEopCU/q69bTaTC4VtIq7rOrJgkTXtj1HadAfcnAa3puD9YA7VZ37MQ3NZ2/EUJUdvgAT6QQJXQPyX5x0UJ5/v1ialoc9R1fatbXf2h5+h7txyNvP3llH70VPUtP+MWvtDn9nXTB8B8feByH0re4KZMb3qVEDcmkbV6cVtymwXzj5GybEUiCqsjYIqA/A2fmqDK07Og/gvQZIvrTqAr68WaxOxnjXtP21R+cR+llvLTWv74DGuobbjF5BAHyS59/e9rdYTz/fTJqWhuQ3wEryhz2yVeWCgT6ynrdIt96Ks+UtwffSduz6yt9VUm7zvNAxybcLNibxipsW2qdwKdcs94MYYuD6yJvkufOMAHu8uNgyIMmS7kQMXqiT+LNAtX4TbFwFTo+LZX5IcdpjbRpxRfTRDtZ3AzWEwgCON6Wxldy6Da2M7VOagbl8YVLkijpmiezVVYwknKFUGUX3mh7xir6hm/07gtqwPT7qKhtLDiRp75TGn3rKG4c3po0TB1KuoOPUwPyxEdYvWcYJKvsgf+9okRIitjKpDa97GW3+Xn/gaZS137TGYHQxZpZWtD7ZAd1EpUg6/IXI4tC9oLiQlep6o0XWqDr7zNt5EectdlJ+4h7Km22Ba3NnaDagkRz4+EDQXRI42uQP9L3drEyeosPfASneE0sPd8uUE8fdmiqr0RTJ2IR3qv00jziTfxS7JF77vrg//JvkiL0Rmzy/M2316qMD34Tqc+AdLre4/98+kwwAAAABJRU5ErkJggg==">
+            
+          </p>
+      </div>
+         
+        
+    <!-- START THE FEATURETTES -->
+
+    <section class="py-5 bg-body-tertiary">
+                <div class="container" id="alla">
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 mb-3 g-3" id="aca"></div>
+                </div>
+            </section>
+        <!--un pie de página-->
+      <div class="bg-primary bg-gradient py-1"></div>
+        <footer class="py-4 bg-primary text-primary-emphasis">
+            <div class="container px-5"><p class="text-center small">Natalie Astudillo - NAF &copy; 2023</p></div>
+            
+            
+        </footer>
+        <!--algo de JS-->
+        <script>
+            const data = [
+                {
+                    img: ["https://imgur.com/dsKZThH.jpg", "https://imgur.com/DioiYam.jpg", "https://imgur.com/etCqmcr.jpg"],
+                    title: "Trabajos de diseño",
+                    text: "<p>Trabajos que he realizado como diseñadora</p>",
+                },
+                {
+                    img: ["https://imgur.com/qpd5e73.jpg", "https://imgur.com/juGBdmG.jpg", "https://imgur.com/5Ca1eT7.jpg"],
+                    title: "Ilustraciones libres",
+                    text: "<p>De manera libre y sin presiones, algunas ilustraciones hechas de forma ociosa.</p>",
+                },
+                {
+                    img: ["https://imgur.com/4bxoLZL.png", "https://imgur.com/iRirNrK.png", "https://imgur.com/NvxZh3N.png"],
+                    title: "Arte",
+                    text: "<p>Hobbie artístico, cuadros y demás</p>",
+                },
+                {
+                    img: ["https://imgur.com/FvhlnYg.jpg", "https://imgur.com/kLe7rDY.jpg", "https://imgur.com/pY1Uj6r.jpg"],
+                    title: "Fotografía",
+                    text: "<p>Buscando aspectos llamativos en los que encurrir, la fotografía es uno de ellos</p>",
+                }
+            ];
+            const donde = document.querySelector("#aca");
+            data.forEach((x, i) => {
+                donde.innerHTML +=
+                    '<div class="col"><div class="card h-100 shadow-sm bg-light-subtle border-0"><img class="card-img-top" src="' +
+                    x.img[0] +
+                    '"><div class="card-body"><p class="card-title"><a href="#" onclick = "detalle(' +
+                    i +
+                    ')" class="text-decoration-none">' +
+                    x.title +
+                    "</a></p></div></div></div>";
+            });
+            const dondemas = document.querySelector("#alla");
+            function detalle(nro) {
+                let fotos = "";
+                data[nro].img.forEach((f) => {
+                    fotos += '<img class="w-100 my-3 rounded" src="' + f + '">';
+                });
+                dondemas.innerHTML =
+                    '<section class="bg-body-tertiary"><div class="container pb-5"><div class="row"><div class="col-sm-11 col-md-10 col-lg-9 col-xl-8 col-xxl-7 mx-auto"><h1 class="display-6 mt-5"><button type="button" class="btn btn-sm btn-outline-secondary shadow-sm mb-2 me-3 fw-bold" onClick="window.location.reload()">&larr; VOLVER</button> ' +
+                    data[nro].title +
+                    '</h1> <figure class="mb-2">' +
+                    fotos +
+                    "</figure>" +
+                    data[nro].text +
+                    "</div></div></div></section>";
+            }
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    </body>
+</html>
